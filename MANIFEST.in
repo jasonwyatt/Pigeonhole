@@ -1,0 +1,3 @@
+graft pigeonhole/static
+graft pigeonhole/templates
+include pigeonhole/db/schema.sql

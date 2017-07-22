@@ -1,0 +1,13 @@
+#!python
+import argparse
+import os
+from pigeonhole import start
+
+parser = argparse.ArgumentParser(description='Start the Pigeonhole server.')
+parser.add_argument('--port', type=int, help='Port on which to expose the server. (default: 8080)', default=8080)
+parser.add_argument('--host', help='Hostname for the server. (default: 0.0.0.0)', default='0.0.0.0')
+parser.add_argument('--db', help='Location of the database. (default: ./pigeonhole_data.sqlite)', default=os.path.join(os.getcwd(), 'pigeonhole_data.sqlite'))
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    start(host = args.host, port = args.port, db_path = args.db)
